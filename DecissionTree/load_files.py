@@ -3,13 +3,18 @@ import init
 import pandas as pd
 
 df_all = []
+df_grouped = []
 
 for root, dirs, files in os.walk(init.directory_path):
     for file in files:
         print(os.path.join(root, file))
         df = pd.read_csv(os.path.join(root, file))
         df = df[df[init.date]>=init.start_day]
-        df = df.groupby(init.date)[[init.open,]].mean()
+        df1 = df.groupby(init.date)[[init.open,]].mean()
+        df1.columns = [df[init.ticker_col].iat[0]]
         df_all.append(df)
-for i in df_all:
+        df_grouped.append(df1)
+        #print(df[init.ticker_col].iat[0])
+
+for i in df_grouped:
     print(i.count())
