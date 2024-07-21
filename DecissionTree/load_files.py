@@ -12,6 +12,9 @@ for root, dirs, files in os.walk(init.directory_path):
         df = df[df[init.date]>=init.start_day]
         df1 = df.groupby(init.date)[[init.open,]].mean()
         df1.columns = [df[init.ticker_col].iat[0]]
+        df1.columns = df1.columns.str.replace("RMFS4 [TQOB]","")
+        df1.columns = df1.columns.str.replace("RMFS9 [TQOB]", "")
+        df1.columns = df1.columns.str.replace("SU", "")
         df_all.append(df)
         df_grouped.append(df1)
         #print(df[init.ticker_col].iat[0])
