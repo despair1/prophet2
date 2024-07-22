@@ -4,5 +4,6 @@ from select_data import select_data
 from select_data1 import select_data1
 
 df = merge_open(lf.df_grouped)
-# select_data(df,0)
+
 select_data1(df,10,0)
+select_data(df,0)
