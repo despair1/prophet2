@@ -15,9 +15,10 @@ for root, dirs, files in os.walk(init.directory_path):
         df1.columns = df1.columns.str.replace("RMFS4 [TQOB]","")
         df1.columns = df1.columns.str.replace("RMFS9 [TQOB]", "")
         df1.columns = df1.columns.str.replace("SU", "")
+        df1.columns = df1.columns.str.replace("RMFS3 [TQOB]", "")
         df_all.append(df)
         df_grouped.append(df1)
-        #print(df[init.ticker_col].iat[0])
+        print(df[init.ticker_col].iat[0])
 
 for i in df_grouped:
     print(i.count())
