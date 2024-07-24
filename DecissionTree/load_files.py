@@ -5,6 +5,7 @@ import pandas as pd
 df_all = []
 df_grouped = []
 
+
 for root, dirs, files in os.walk(init.directory_path):
     for file in files:
         print(os.path.join(root, file))

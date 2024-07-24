@@ -12,6 +12,8 @@ df.info()
 df["y"] = df.iloc[:, 0].shift(-1)
 df= df[-50:]
 val_list2index_list(df,0,85,86)
+val_list2index_list(df,0,86,90)
+val_list2index_list(df,0,70,85)
 fig,ax = plt.subplots()
 ax.plot(df[df.columns[0]], df["y"])
 sns.regplot(x=df[df.columns[0]], y=df["y"] )
