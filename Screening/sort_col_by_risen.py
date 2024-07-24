@@ -6,6 +6,6 @@ def sort_col_by_risen(df: pd.DataFrame):
     sorted_columns = l.sort_values(ascending=False).index
     sorted_df = df[sorted_columns]
     # l = l/ df.loc[0]
-    # print(l, sorted_columns)
-    print(sorted_df)
+    print(l, sorted_columns)
+    # print(sorted_df)
     return sorted_df
