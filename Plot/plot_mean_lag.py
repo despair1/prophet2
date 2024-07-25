@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from val_list2index_list import  val_list2index_list
 import seaborn as sns
 
-df.plot(x=0,y=1,kind="scatter")
+# df.plot(x=0,y=1,kind="scatter")
 # plt.show()
 df.info()
 
 df["y"] = df.iloc[:, 0].shift(-1)
-df= df[-50:]
+# df= df[-50:]
 val_list2index_list(df,0,85,86)
 val_list2index_list(df,0,86,90)
 val_list2index_list(df,0,70,85)

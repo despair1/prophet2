@@ -8,7 +8,7 @@ import pandas as pd
 # df.iloc[:,0].plot()
 df.plot()
 df.hist()
-
+plt.tight_layout(rect=[0, 0, 1, 0.95])
 # df.info()
 df[-50:].plot()
 df[-50:].hist()
