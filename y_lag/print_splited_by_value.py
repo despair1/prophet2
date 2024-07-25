@@ -3,21 +3,31 @@ from day_mean_all_ofz import day_mean_all
 
 
 df = day_mean_all()
-for key,val in init.split_by_values.items():
+indexes = {}
+for key,val in init.split_by_decreasing_values.items():
     col = [col for col in df.columns if key  in col]
     if not col: continue
+    if len(col) !=1: continue
     print(col, val[0])
-    # print(df[df[col]<val[0][col]].idxmin())
-    # print(df[df[col] < val[0][col]].idxmax())
-    col = col[0]
-    # print(df.loc[-1:,col])
-    print(df.loc[:,col].idxmin())
+    ind = []
     filtered_df = df
-    filtered_df = filtered_df[filtered_df[col] < val[0]]
-    print(filtered_df.index[0])
-    print(df.index[0])
-    # print(df[col].head(10))
-    # print(df[col].tail(10))
-    # print(df.tail(10))
-    # print(filtered_df)
-    # print(df[df[col[0]]<val[0]]])
+    col = col[0]
+    ind.append(df.index[0])
+    for i in val:
+        filtered_df = df[df[col] < i]
+        ind.append(filtered_df.index[0])
+        print(i)
+    ind.append(df.index[-1])
+    print(ind)
+    if len(ind) < 2: continue
+    start_i = ind[0]
+    idx = ind[1:]
+    for i in idx:
+        print(start_i,i)
+        # print(df.loc[start_i:i])
+        start_i=i
+    indexes[key]=ind
+print(indexes)
+
+
+
