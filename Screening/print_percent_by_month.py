@@ -7,6 +7,7 @@ df = df.resample("ME").mean()
 df.columns = [col[:5] for col in df.columns]
 print(df)
 # print(range(df.shape[1]))
+pd.options.display.float_format = '{:.2f}'.format
 for i in range(df.shape[1]):
     df["y"] = df.iloc[:,i].shift(-1)
     c = df.columns[i]
